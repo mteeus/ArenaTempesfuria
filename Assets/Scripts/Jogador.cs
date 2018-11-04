@@ -28,6 +28,8 @@ public class Jogador : MonoBehaviour {
 		}else{
 			indoBaixo=false;
 		}
+
+
 	}
 	void FixedUpdate(){
 		if (indoCima ==true){
@@ -37,5 +39,6 @@ public class Jogador : MonoBehaviour {
 		} else{
 			rb.velocity=new Vector2(0,0);
 		}
+		
 	}
 }

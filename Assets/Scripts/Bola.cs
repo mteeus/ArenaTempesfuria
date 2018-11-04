@@ -6,6 +6,8 @@ public class Bola : MonoBehaviour {
 	float sorteio;
 	float sorteioy;
 	public bool primeiraVez;
+	public AudioClip somColisao;
+	public AudioClip somPontos;
 	public Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
@@ -40,6 +42,7 @@ public class Bola : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D outro){
 		if (outro.gameObject.tag=="Player"){
 			rb.velocity=rb.velocity + outro.gameObject.GetComponent<Rigidbody2D>().velocity/3; 
+			GetComponent<AudioSource>().PlayOneShot(somColisao);
 
 		}
 
@@ -57,6 +60,7 @@ public class Bola : MonoBehaviour {
 				transform.position = new Vector3(0,0,transform.position.z);
 				rb.velocity=new Vector2(0,0);
 				Time.timeScale=0;
+				GetComponent<AudioSource>().PlayOneShot(somPontos);
 			}
 		}
 	}
