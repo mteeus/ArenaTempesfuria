@@ -171,7 +171,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   cima: 273
   baixo: 274
-  velocidade: 3
+  velocidade: 6
   indoCima: 0
   indoBaixo: 0
 --- !u!50 &75920907
@@ -1403,7 +1403,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   cima: 119
   baixo: 115
-  velocidade: 3
+  velocidade: 6
   indoCima: 0
   indoBaixo: 0
 --- !u!61 &1299477593
