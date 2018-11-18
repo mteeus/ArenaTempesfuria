@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
-
+using UnityEngine.SceneManagement;
 public class pontuacao : MonoBehaviour {
     /// <summary>
     /// Pontuação do Player 1.
@@ -14,7 +14,7 @@ public class pontuacao : MonoBehaviour {
     /// <summary>
     /// Constante com o valor de pontuação que determina o vencedor do jogo
     /// </summary>
-    public const int PontuacaoMaxima = 3;
+    public const int PontuacaoMaxima = 5;
 
 	public Text Score1;
 	public Text Score2;
@@ -37,11 +37,13 @@ public class pontuacao : MonoBehaviour {
         // Verificação se o jogo terminou e quem venceu.
         if (JogadorVencedor(pontos1))
         {
-            EditorUtility.DisplayDialog("Fim de Jogo", "O player 1 venceu o jogo!", "Ok");
+            SceneManager.LoadScene("GameOver");
+            pontos1=0;
         }
         if (JogadorVencedor(pontos2))
         {
-            EditorUtility.DisplayDialog("Fim de Jogo", "O player 2 venceu o jogo!", "Ok");
+            SceneManager.LoadScene("GameOver2");
+            pontos2=0;
         }
     }
 
