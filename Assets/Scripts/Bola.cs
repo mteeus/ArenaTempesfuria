@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Bola : MonoBehaviour {
 	float sorteio;
 	float sorteioy;
@@ -9,6 +10,7 @@ public class Bola : MonoBehaviour {
 	public AudioClip somColisao;
 	public AudioClip somPontos;
 	public Rigidbody2D rb;
+	
 	// Use this for initialization
 	void Start () {
 		rb=GetComponent<Rigidbody2D>();
@@ -23,9 +25,11 @@ public class Bola : MonoBehaviour {
 			rb.AddForce(new Vector2(-0.05f,sorteioy));
 		}
 	}
+	
 	}
 	
-	// Update is called once per frame
+	
+	
 	void Update () {
 		if(Input.GetButtonDown("Jump") && Time.timeScale==0  ){
 			Time.timeScale=1;
@@ -39,14 +43,17 @@ public class Bola : MonoBehaviour {
 		}
 		}
 	}
+	//colisoes com as jogadores
 	void OnCollisionEnter2D (Collision2D outro){
 		if (outro.gameObject.tag=="Player"){
 			rb.velocity=rb.velocity + outro.gameObject.GetComponent<Rigidbody2D>().velocity/3; 
 			GetComponent<AudioSource>().PlayOneShot(somColisao);
 
-		}
+	}
+	
 
 	}
+	//colisoes com as paredes
 	void OnTriggerEnter2D (Collider2D parede){
 		if (parede.gameObject.tag=="Parededir"){
 			pontuacao.pontos1++;

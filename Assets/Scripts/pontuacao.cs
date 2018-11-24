@@ -14,7 +14,7 @@ public class pontuacao : MonoBehaviour {
     /// <summary>
     /// Constante com o valor de pontuação que determina o vencedor do jogo
     /// </summary>
-    public const int PontuacaoMaxima = 5;
+    public const int PontuacaoMaxima = 3;
 
 	public Text Score1;
 	public Text Score2;
@@ -37,13 +37,17 @@ public class pontuacao : MonoBehaviour {
         // Verificação se o jogo terminou e quem venceu.
         if (JogadorVencedor(pontos1))
         {
-            SceneManager.LoadScene("GameOver");
             pontos1=0;
+            pontos2=0;
+            SceneManager.LoadScene("GameOver");
+            
         }
         if (JogadorVencedor(pontos2))
         {
-            SceneManager.LoadScene("GameOver2");
+            pontos1=0;
             pontos2=0;
+            SceneManager.LoadScene("GameOver2");
+            
         }
     }
 
